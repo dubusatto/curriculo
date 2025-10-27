@@ -1,5 +1,5 @@
 # Eduardo Busatto Santos Truchym
-Curitiba–PR | (41) 99944-8098 | Du.busatto@gmail.com | [LinkedIn](https://linkedin.com/in/eduardo-busatto) | [GitHub](https://github.com/dubusatto).
+Curitiba–PR | (41) 99944-8098 | Du.busatto@gmail.com | [LinkedIn](https://linkedin.com/in/eduardo-busatto) | [GitHub](https://github.com/dubusatto)
 
 ---
 

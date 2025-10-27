@@ -36,7 +36,7 @@ jobs:
       - name: Converter Markdown para PDF
         run: |
           pandoc README.md \
-            -o build/curriculo.pdf \
+            -o build/Eduardo-Busatto-Curriculo-TI.pdf \
             --pdf-engine=xelatex \
             -V geometry:margin=1in
 
@@ -56,7 +56,7 @@ jobs:
           # Adiciona o .gitattributes PRIMEIRO para garantir que ele seja lido
           git add .gitattributes 
           # Adiciona o novo PDF
-          git add build/curriculo.pdf
+          git add build/Eduardo-Busatto-Curriculo-TI.pdf
           
           # Verifica se há mudanças. Se houver, faz o commit.
           # Isso evita erros caso o PDF não tenha mudado
