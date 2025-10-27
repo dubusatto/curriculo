@@ -1,0 +1,49 @@
+name: Gerar PDF do Currículo
+
+# Gatilho: Roda sempre que você der 'push' na branch 'main'
+on:
+  push:
+    branches:
+      - main # ou 'master', dependendo do seu repositório
+    paths:
+      # Só roda se o arquivo .md mudar
+      - 'README.md' 
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Baixa o seu repositório para o robô
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      # 2. Instala as ferramentas (Pandoc e LaTeX)
+      # Pandoc converte .md para .pdf
+      # LaTeX é o motor para criar o PDF com qualidade
+      - name: Instalar Pandoc e dependências LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+
+      # 3. Cria a pasta 'build' para salvar o PDF
+      - name: Criar pasta para o PDF
+        run: mkdir -p build
+
+      # 4. Converte o Markdown (README.md) para PDF
+      # Aumentamos a margem para 1in (aprox 2.54cm) para melhor formatação
+      - name: Converter Markdown para PDF
+        run: |
+          pandoc README.md \
+            -o build/curriculo.pdf \
+            --pdf-engine=xelatex \
+            -V geometry:margin=1in
+
+      # 5. Faz o commit do novo PDF de volta para o repositório
+      - name: Commit do PDF gerado
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: Atualiza currículo em PDF [BOT]"
+          file_pattern: "build/curriculo.pdf"
+          commit_user_name: "GitHub Actions Bot"
+          commit_user_email: "actions@github.com"
+          commit_author: "GitHub Actions Bot <actions@github.com>"
