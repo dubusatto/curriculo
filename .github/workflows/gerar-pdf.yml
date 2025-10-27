@@ -10,11 +10,8 @@ on:
 
 jobs:
   build-pdf:
-    # ----------------------------------------------------
-    # A MUDANÇA ESTÁ AQUI: Dando permissão de escrita
     permissions:
       contents: write
-    # ----------------------------------------------------
 
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +36,16 @@ jobs:
             -o build/curriculo.pdf \
             --pdf-engine=xelatex \
             -V geometry:margin=1in
+
+      # -----------------------------------------------------------------
+      # 4.5. PASSO DE DEBUG: Verificar o arquivo gerado (NOVO PASSO!)
+      - name: Verificar o PDF gerado
+        run: |
+          echo "--- VERIFICANDO O ARQUIVO PDF ---"
+          ls -lh build/
+          file build/curriculo.pdf
+          echo "-----------------------------------"
+      # -----------------------------------------------------------------
 
       # 5. Faz o commit do novo PDF de volta para o repositório
       - name: Commit do PDF gerado
