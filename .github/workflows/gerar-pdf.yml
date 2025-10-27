@@ -1,16 +1,21 @@
 name: Gerar PDF do Currículo
 
-# Gatilho: Roda sempre que você der 'push' na branch 'main'
 on:
   push:
     branches:
-      - main # ou 'master', dependendo do seu repositório
+      - main
     paths:
       # Só roda se o arquivo .md mudar
       - 'README.md' 
 
 jobs:
   build-pdf:
+    # ----------------------------------------------------
+    # A MUDANÇA ESTÁ AQUI: Dando permissão de escrita
+    permissions:
+      contents: write
+    # ----------------------------------------------------
+
     runs-on: ubuntu-latest
     steps:
       # 1. Baixa o seu repositório para o robô
@@ -18,8 +23,6 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. Instala as ferramentas (Pandoc e LaTeX)
-      # Pandoc converte .md para .pdf
-      # LaTeX é o motor para criar o PDF com qualidade
       - name: Instalar Pandoc e dependências LaTeX
         run: |
           sudo apt-get update
@@ -30,7 +33,6 @@ jobs:
         run: mkdir -p build
 
       # 4. Converte o Markdown (README.md) para PDF
-      # Aumentamos a margem para 1in (aprox 2.54cm) para melhor formatação
       - name: Converter Markdown para PDF
         run: |
           pandoc README.md \
