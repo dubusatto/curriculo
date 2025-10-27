@@ -15,21 +15,21 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      # 1. Baixa o seu repositório para o robô
+      # 1. Checkout
       - name: Checkout do Repositório
         uses: actions/checkout@v4
 
-      # 2. Instala as ferramentas (Pandoc e LaTeX)
+      # 2. Instalar Pandoc e LaTeX
       - name: Instalar Pandoc e dependências LaTeX
         run: |
           sudo apt-get update
           sudo apt-get install -y pandoc texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-xetex
 
-      # 3. Cria a pasta 'build' para salvar o PDF
+      # 3. Criar pasta 'build'
       - name: Criar pasta para o PDF
         run: mkdir -p build
 
-      # 4. Converte o Markdown (README.md) para PDF
+      # 4. Converter Markdown para PDF
       - name: Converter Markdown para PDF
         run: |
           pandoc README.md \
@@ -37,17 +37,24 @@ jobs:
             --pdf-engine=xelatex \
             -V geometry:margin=1in
 
-      # -----------------------------------------------------------------
-      # 4.5. PASSO DE DEBUG: Verificar o arquivo gerado (NOVO PASSO!)
+      # 4.5. Verificar o PDF
       - name: Verificar o PDF gerado
         run: |
           echo "--- VERIFICANDO O ARQUIVO PDF ---"
           ls -lh build/
           file build/curriculo.pdf
           echo "-----------------------------------"
+          
+      # -----------------------------------------------------------------
+      # 4.6. PASSO DE DEBUG NOVO: Salvar o PDF como artefato
+      - name: Upload PDF as Artifact (para debugging)
+        uses: actions/upload-artifact@v4
+        with:
+          name: curriculo-pdf-artifact
+          path: build/curriculo.pdf
       # -----------------------------------------------------------------
 
-      # 5. Faz o commit do novo PDF de volta para o repositório
+      # 5. Fazer o commit do PDF
       - name: Commit do PDF gerado
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
