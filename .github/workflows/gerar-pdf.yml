@@ -18,6 +18,9 @@ jobs:
       # 1. Checkout
       - name: Checkout do Repositório
         uses: actions/checkout@v4
+        with:
+          # Precisamos "puxar" o histórico para poder "empurrar" (push)
+          fetch-depth: 0 
 
       # 2. Instalar Pandoc e LaTeX
       - name: Instalar Pandoc e dependências LaTeX
@@ -29,7 +32,7 @@ jobs:
       - name: Criar pasta para o PDF
         run: mkdir -p build
 
-      # 4. Converter Markdown para PDF
+      # 4. Converter Markdown para PDF (Sabemos que isso funciona)
       - name: Converter Markdown para PDF
         run: |
           pandoc README.md \
@@ -37,29 +40,32 @@ jobs:
             --pdf-engine=xelatex \
             -V geometry:margin=1in
 
-      # 4.5. Verificar o PDF
-      - name: Verificar o PDF gerado
-        run: |
-          echo "--- VERIFICANDO O ARQUIVO PDF ---"
-          ls -lh build/
-          file build/curriculo.pdf
-          echo "-----------------------------------"
-          
       # -----------------------------------------------------------------
-      # 4.6. PASSO DE DEBUG NOVO: Salvar o PDF como artefato
-      - name: Upload PDF as Artifact (para debugging)
-        uses: actions/upload-artifact@v4
-        with:
-          name: curriculo-pdf-artifact
-          path: build/curriculo.pdf
+      # SUBSTITUÍMOS O ROBÔ CULPADO POR PASSOS MANUAIS
       # -----------------------------------------------------------------
 
-      # 5. Fazer o commit do PDF
-      - name: Commit do PDF gerado
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: Atualiza currículo em PDF [BOT]"
-          file_pattern: "build/curriculo.pdf"
-          commit_user_name: "GitHub Actions Bot"
-          commit_user_email: "actions@github.com"
-          commit_author: "GitHub Actions Bot <actions@github.com>"
+      # 5. Configurar o Git
+      - name: Configurar o Git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+
+      # 6. Adicionar arquivos e fazer o Commit
+      - name: Adicionar e Commitar o PDF
+        run: |
+          # Adiciona o .gitattributes PRIMEIRO para garantir que ele seja lido
+          git add .gitattributes 
+          # Adiciona o novo PDF
+          git add build/curriculo.pdf
+          
+          # Verifica se há mudanças. Se houver, faz o commit.
+          # Isso evita erros caso o PDF não tenha mudado
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: Atualiza currículo em PDF [BOT]"
+          else
+            echo "Nenhuma mudança no PDF para commitar."
+          fi
+
+      # 7. Enviar o Push para o repositório
+      - name: Enviar (Push) o PDF
+        run: git push origin main
