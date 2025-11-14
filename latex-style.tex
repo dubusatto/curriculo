@@ -1,21 +1,30 @@
-% Pacotes para customizar cores e fontes das seções
+% --- Pacotes Necessários ---
 \usepackage{xcolor}
-\usepackage{sectsty}
+\usepackage{titlesec} % Pacote mais robusto e padrão para títulos
 
 % --- Definição das Cores ---
-% Cor do seu nome (H1 -> \section)
-\definecolor{myblue}{RGB}{0, 74, 145}  % Este é o seu #004a91
-% Cor dos títulos (H2 -> \subsection)
-\definecolor{mygray}{RGB}{51, 51, 51}  % Um cinza escuro #333
+\definecolor{myblue}{RGB}{0, 74, 145}  % Seu azul #004a91
+\definecolor{mygray}{RGB}{51, 51, 51}  % Cinza escuro #333
 
 % --- Aplicação dos Estilos ---
 
-% Estilo para # (H1, que o Pandoc trata como \section)
-% \fontsize{tamanho}{espaço-linha}
-\sectionfont{\fontsize{24pt}{28pt}\selectfont\color{myblue}\normalfont\bfseries\raggedright}
+% Estilo para # (H1 / \section)
+\titleformat{\section}
+  {\normalfont\bfseries\Huge\color{myblue}\raggedright} % \Huge é o maior tamanho
+  {} 
+  {0em}
+  {} 
 
-% Estilo para ## (H2, que o Pandoc trata como \subsection)
-\subsectionfont{\fontsize{16pt}{19pt}\selectfont\color{mygray}\normalfont\bfseries\raggedright}
+% Estilo para ## (H2 / \subsection)
+\titleformat{\subsection}
+  {\normalfont\bfseries\Large\color{mygray}\raggedright} % \Large é um bom tamanho
+  {}
+  {0em}
+  {}
 
-% Bônus: Remove a numeração das seções (ex: 1. Resumo, 2. Habilidades)
+% Bônus: Remove a numeração (1. Resumo, 2. Habilidades)
 \setcounter{secnumdepth}{0}
+
+% Ajusta os espaços para o PDF não ficar muito "espalhado"
+\titlespacing*{\section}{0pt}{*2}{*1}
+\titlespacing*{\subsection}{0pt}{*2}{*1}
