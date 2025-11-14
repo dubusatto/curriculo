@@ -3,7 +3,7 @@ Curitiba–PR | (41) 99944-8098 | Du.busatto@gmail.com | [LinkedIn](https://link
 
 ---
 
-## 🎯 Resumo Profissional
+## Resumo Profissional
 Estudante de Análise e Desenvolvimento de Sistemas em transição de carreira, com sólida experiência prévia em gestão de processos e equipes. Atualmente **desenvolvendo habilidades práticas em** Python, Java, Flutter, análise de dados (Power BI, MySQL) e **fundamentos de computação em nuvem (Microsoft Azure)**. Buscando aplicar habilidades analíticas e técnicas para construir soluções de software eficientes.
 
 ---
