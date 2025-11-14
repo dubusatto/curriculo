@@ -14,3 +14,4 @@ Sempre que fizer uma alteração no `README.md`, execute esta sequência complet
 2.  `git commit -m "Sua mensagem (ex: Adicionei novo curso)"`
 3.  `git pull origin main --rebase`
 4.  `git push origin main`
+5.  2 min depois 'git pull origin main'
