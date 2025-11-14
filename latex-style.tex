@@ -1,0 +1,21 @@
+% Pacotes para customizar cores e fontes das seções
+\usepackage{xcolor}
+\usepackage{sectsty}
+
+% --- Definição das Cores ---
+% Cor do seu nome (H1 -> \section)
+\definecolor{myblue}{RGB}{0, 74, 145}  % Este é o seu #004a91
+% Cor dos títulos (H2 -> \subsection)
+\definecolor{mygray}{RGB}{51, 51, 51}  % Um cinza escuro #333
+
+% --- Aplicação dos Estilos ---
+
+% Estilo para # (H1, que o Pandoc trata como \section)
+% \fontsize{tamanho}{espaço-linha}
+\sectionfont{\fontsize{24pt}{28pt}\selectfont\color{myblue}\normalfont\bfseries\raggedright}
+
+% Estilo para ## (H2, que o Pandoc trata como \subsection)
+\subsectionfont{\fontsize{16pt}{19pt}\selectfont\color{mygray}\normalfont\bfseries\raggedright}
+
+% Bônus: Remove a numeração das seções (ex: 1. Resumo, 2. Habilidades)
+\setcounter{secnumdepth}{0}

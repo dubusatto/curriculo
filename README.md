@@ -1,4 +1,4 @@
-<h1 style="font-size: 28px; color: #004a91;">Eduardo Busatto Santos Truchym</h1>
+# Eduardo Busatto Santos Truchym
 Curitiba–PR | (41) 99944-8098 | Du.busatto@gmail.com | [LinkedIn](https://linkedin.com/in/eduardo-busatto) | [GitHub](https://github.com/dubusatto)
 
 ---
@@ -29,25 +29,25 @@ Estudante de Análise e Desenvolvimento de Sistemas em transição de carreira, 
 
 ---
 
-## Habilidades Técnicas e Competências
+## 🛠️ Habilidades Técnicas e Competências
+
 * **Linguagens de Programação:**
-    * Python, Java, Dart, SQL
+    * Python, Java, Dart, SQL
 * **Desenvolvimento de Software:**
-    * Desenvolvimento Mobile (Flutter)
-    * Desenvolvimento Mobile Android (Java, Android Studio) (disciplina em andamento)
-    * Design de UI/UX e Interação Humano-Computador (IHC)
-    * Git e Controle de Versão
-    * Ciclo de Vida de Software (Levantamento de Requisitos, Modelagem, Casos de Teste, Estimativas de Esforço)
+    * Desenvolvimento Mobile (Flutter)
+    * Desenvolvimento Mobile Android (Java, Android Studio) (disciplina em andamento)
+    * Design de UI/UX e Interação Humano-Computador (IHC)
+    * Git e Controle de Versão
+    * Ciclo de Vida de Software (Levantamento de Requisitos, Modelagem, Casos de Teste, Estimativas de Esforço)
 * **Cloud e Infraestrutura:**
     * Conhecimento em conceitos de nuvem (IaaS, PaaS, SaaS)
     * Microsoft Azure: Gerenciamento de Máquinas Virtuais (VMs), Redes Virtuais (VNet) e Application Gateway.
     * Noções de conteinerização (Docker).
 * **Dados, BI e Machine Learning:**
-    * Modelagem e Manipulação de Dados (MySQL)
-    * Visualização de Dados e Dashboards (Power BI)
-    * Machine Learning (Scikit-learn: RandomForest, HistGradientBoosting)
-    * Análise e Mineração de Processos
-
+    * Modelagem e Manipulação de Dados (MySQL)
+    * Visualização de Dados e Dashboards (Power BI)
+    * Machine Learning (Scikit-learn: RandomForest, HistGradientBoosting)
+    * Análise e Mineração de Processos
 ---
 
 ## Experiência Profissional

@@ -39,6 +39,7 @@ jobs:
             -o build/Eduardo-Busatto-Curriculo-TI.pdf \
             --pdf-engine=xelatex \
             -V geometry:margin=1in
+            -H latex-style.tex
 
       # -----------------------------------------------------------------
       # SUBSTITUÍMOS O ROBÔ CULPADO POR PASSOS MANUAIS
