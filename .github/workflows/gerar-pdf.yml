@@ -38,7 +38,7 @@ jobs:
           pandoc README.md \
             -o build/Eduardo-Busatto-Curriculo-TI.pdf \
             --pdf-engine=xelatex \
-            -V geometry:margin=1in
+            -V geometry:margin=1in \
             -H latex-style.tex
 
       # -----------------------------------------------------------------
