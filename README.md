@@ -29,7 +29,7 @@ Estudante de Análise e Desenvolvimento de Sistemas em transição de carreira, 
 
 ---
 
-## 🛠️ Habilidades Técnicas e Competências
+## Habilidades Técnicas e Competências
 
 * **Linguagens de Programação:**
     * Python, Java, Dart, SQL
